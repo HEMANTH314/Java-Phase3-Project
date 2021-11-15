@@ -1,0 +1,47 @@
+<br><br>
+<hr>
+<br>
+
+<br><br>
+<a routerLink="/create-stock-exchange" class="btn btn-primary">Add New Stock Exchange</a>
+<br>
+
+<table  class="table table-striped">
+  <caption><h2>List Of Stock Exchanges</h2></caption>
+  <thead class="thead-inverse thead-dark">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Contact Address</th>
+    <th>Remarks</th>
+    <th>Edit Record</th>
+    <th>Delete Record</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let stockExchange of stockExchanges">
+    <td>{{ stockExchange.name }}</td>
+    <td>{{ stockExchange.description }}</td>
+    <td>{{ stockExchange.address }}</td>
+    <td>{{ stockExchange.remarks }}</td>
+    <td>
+      <a routerLink="/edit-stock-exchange/{{ stockExchange.id }}" class="btn btn-secondary btn-sm">
+        <i class="fa fa-pencil"></i> Edit
+      </a>
+    </td>
+    <td>
+      <button (click)="onDeleteClick(stockExchange.id+'')" class="btn btn-secondary btn-sm">
+        <i class="fa fa-trash"></i> Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<br><br>
+
+
+<ng-template #noStockExchanges>
+  <br>
+  <br>
+  <h5>There are no Stock Exchanges in the system.</h5>
+</ng-template>

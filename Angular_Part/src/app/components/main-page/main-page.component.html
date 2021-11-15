@@ -1,0 +1,38 @@
+<a routerLink="/" ><i class="fa fa-exchange"></i> StockMarket</a>
+
+<nav >
+  <ul>
+    <li *ngIf="!isAuthenticated" class="nav-item">
+      <a routerLink="/signup" class="nav-link">SignUp</a>
+    </li>
+    <li *ngIf="!isAuthenticated" class="nav-item">
+      <a routerLink="/userlogin" class="nav-link">Login</a>
+    </li>
+    <li *ngIf="isAuthenticated" class="nav-item">
+      <a href="#" (click)="onLogoutClick()" class="nav-link">Logout</a>
+    </li>
+  </ul>
+  <ul *ngIf="isAuthenticated" >
+    <br><hr>
+    <li *ngIf="isAdmin" class="nav-item">
+      <a routerLink="/importexcel">Import Data</a>
+    </li>
+    <li *ngIf="isAdmin" class="nav-item">
+      <a routerLink="/managecompany">Manage Company</a>
+    </li>
+    <li *ngIf="isAdmin" class="nav-item">
+      <a routerLink="/sectors" class="nav-link">Manage Sectors</a>
+    </li>
+    <li *ngIf="isAdmin" class="nav-item">
+      <a routerLink="/stock-exchanges">Manage Exchage</a>
+    </li>
+    <li *ngIf="isAdmin" class="nav-item">
+      <a routerLink="/ipos" class="nav-link">Update IPOs</a>
+  </ul>
+    <ul *ngIf="isAuthenticated">
+      <li *ngIf="!isAdmin"><a routerLink="/ipos">IPOs</a></li>
+      <li *ngIf="!isAdmin"><a routerLink="/comparison-charts">Compare Company</a></li>
+      <li *ngIf="!isAdmin"><a routerLink="/comparison-charts">Compare Sectors</a></li>
+      <li *ngIf="!isAdmin"><a routerLink="">other</a></li>
+    </ul>
+</nav>

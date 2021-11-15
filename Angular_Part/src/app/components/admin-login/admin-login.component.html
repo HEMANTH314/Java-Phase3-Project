@@ -1,0 +1,27 @@
+Admin Login
+<br><br>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <label for="username">User Name</label>
+  <input type="username" name="username" class="form-control" placeholder="User Name" #username="ngModel"
+    [ngClass]="{'is-invalid': username.errors && username.touched}" [(ngModel)]="user.username" minlength="4"
+    required>
+    <div style="color:red" [hidden]="!username.errors?.required" class="invalid-feedback">
+      Username required
+    </div>
+    <div style="color:red" [hidden]="!username.errors?.minlength" class="invalid-feedback">
+      Must be atleast 4 characters
+    </div><br><br>
+
+  <label for="password">Password</label>
+  <input type="password" name="password" class="form-control" placeholder="Password" #password="ngModel"
+    [ngClass]="{'is-invalid': password.errors && password.touched}" [(ngModel)]="user.password" minlength="4"
+    required>
+    <div style="color:red" [hidden]="!password.errors?.required" class="invalid-feedback">
+      Password required
+    </div>
+    <div style="color:red" [hidden]="!password.errors?.minlength" class="invalid-feedback">
+      Must be atleast 4 characters
+    </div><br><br>
+  <input type="submit" value="Login" class="btn btn-primary btn-block">
+</form>
+

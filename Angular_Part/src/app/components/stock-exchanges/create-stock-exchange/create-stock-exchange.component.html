@@ -1,0 +1,54 @@
+<br><br>
+<hr>
+<br><br>
+<a routerLink="/stock-exchanges" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"></i> Back To List of Stock Exchanges
+</a>
+
+<h2>Add Stock Exchange</h2>
+
+<form #stockExchangeForm="ngForm" (ngSubmit)="onSubmit(stockExchangeForm)">
+    Stock Exchange Name
+    <input type="text" class="form-control" name="name" #name="ngModel"
+        [ngClass]="{'is-invalid': name.errors && name.touched}" [(ngModel)]="stockExchange.name"
+        placeholder="Stock Exchange Name" minlength="2" required>
+    <div style="color:red" [hidden]="!name.errors?.required" class="invalid-feedback">
+        Stock Exchange name required
+    </div>
+    <div style="color:red" [hidden]="!name.errors?.minlength" class="invalid-feedback">
+        Must be atleast 2 characters
+    </div><br><br>
+    Stock Exchange Description
+    <input type="text" class="form-control" name="description" #description="ngModel"
+        [ngClass]="{'is-invalid': description.errors && description.touched}" [(ngModel)]="stockExchange.description"
+        placeholder="Stock Exchange Description" minlength="2" required>
+    <div style="color:red" [hidden]="!description.errors?.required" class="invalid-feedback">
+        Description for the Stock Exchange required
+    </div>
+    <div style="color:red" [hidden]="!description.errors?.minlength" class="invalid-feedback">
+        Must be atleast 2 characters
+    </div><br><br>
+    Contact Address
+    <input type="text" class="form-control" name="address" #address="ngModel"
+        [ngClass]="{'is-invalid': address.errors && address.touched}" [(ngModel)]="stockExchange.address"
+        placeholder="Contact Address" minlength="2" required>
+    <div style="color:red" [hidden]="!address.errors?.required" class="invalid-feedback">
+        Contact Address for the Stock Exchange required
+    </div>
+    <div style="color:red" [hidden]="!address.errors?.minlength" class="invalid-feedback">
+        Must be atleast 2 characters
+    </div><br><br>
+    Remarks
+    <input type="text" class="form-control" name="remarks" #remarks="ngModel"
+        [ngClass]="{'is-invalid': remarks.errors && remarks.touched}" [(ngModel)]="stockExchange.remarks"
+        placeholder="Remarks" minlength="2" required>
+    <div style="color:red" [hidden]="!remarks.errors?.required" class="invalid-feedback">
+        Remarks required
+    </div>
+    <div style="color:red" [hidden]="!remarks.errors?.minlength" class="invalid-feedback">
+        Must be atleast 2 characters
+    </div><br><br>
+
+    <input type="submit" value="Submit" class="btn btn-primary btn-block">
+</form>    
+

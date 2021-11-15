@@ -1,0 +1,65 @@
+<br>
+<hr>
+<br><br>
+<a routerLink="/ipos" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"></i> Back To List of IPO's
+</a>
+<br><br>
+
+<h2>Add IPO</h2>
+<form #ipoForm="ngForm" (ngSubmit)="onSubmit(ipoForm)">
+    Company Name 
+    <input type="text" class="form-control" name="companyName" #companyName="ngModel"
+        [ngClass]="{'is-invalid': companyName.errors && companyName.touched}" [(ngModel)]="ipo1.companyName"
+        placeholder="Company Name" minlength="2" required>
+    <div style="color:red" [hidden]="!companyName.errors?.required" class="invalid-feedback">
+        Company name required
+    </div>
+    <div style="color:red" [hidden]="!companyName.errors?.minlength" class="invalid-feedback">
+        Must be atleast 2 characters
+    </div><br><br>
+    Stock Exchange Name 
+    <input type="text" class="form-control" name="stockExchangeName" #stockExchangeName="ngModel"
+        [ngClass]="{'is-invalid': stockExchangeName.errors && stockExchangeName.touched}"
+        [(ngModel)]="ipo1.stockExchangeName" placeholder="Stock Exchange Name" minlength="2" required>
+    <div style="color:red" [hidden]="!stockExchangeName.errors?.required" class="invalid-feedback">
+        Stock Exchange Name required
+    </div>
+    <div style="color:red" [hidden]="!stockExchangeName.errors?.minlength" class="invalid-feedback">
+        Must be atleast 2 characters
+    </div><br><br>
+
+    <label for="pricePerShare">Price Per Share </label>
+    <input type="number" class="form-control" name="pricePerShare" #price="ngModel"
+        [ngClass]="{'is-invalid': price.errors && price.touched}" [(ngModel)]="ipo1.pricePerShare"
+        placeholder="Price per Share" required>
+    <div style="color:red" [hidden]="!price.errors?.required" class="invalid-feedback">
+        Price required
+    </div><br><br>
+
+    <label for="totalNumberOfShares">Shares </label>
+    <input type="number" class="form-control" name="totalNumberOfShares" #shares="ngModel"
+        [ngClass]="{'is-invalid': shares.errors && shares.touched}" [(ngModel)]="ipo1.totalNumberOfShares"
+        placeholder="Shares" required>
+    <div style="color:red" [hidden]="!shares.errors?.required" class="invalid-feedback">
+        Shares required
+    </div><br><br>
+    Open Date and Time
+    <input type="datetime-local" class="form-control" name="openDateTime" #openDateTime="ngModel"
+        [ngClass]="{'is-invalid': openDateTime.errors && openDateTime.touched}" [(ngModel)]="ipo1.openDateTime"
+        placeholder="Open Date and Time" minlength="2">
+    <div style="color:red" [hidden]="!openDateTime.errors?.required" class="invalid-feedback">
+        Open Date and Time Required
+    </div><br><br>
+    Remarks 
+    <input type="text" class="form-control" name="remarks" #remarks="ngModel"
+        [ngClass]="{'is-invalid': remarks.errors && remarks.touched}" [(ngModel)]="ipo1.remarks" placeholder="Remarks"
+        minlength="2" required>
+    <div style="color:red" [hidden]="!remarks.errors?.required" class="invalid-feedback">
+        Remarks required
+    </div>
+    <div style="color:red" [hidden]="!remarks.errors?.minlength" class="invalid-feedback">
+        Must be atleast 2 characters
+    </div><br><br>
+    <input type="submit" value="Submit" class="btn btn-primary btn-block">
+</form>

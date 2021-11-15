@@ -1,0 +1,30 @@
+<br><br>
+<hr>
+<br>
+<a routerLink="/sectors" class="btn btn-link">
+  <i class="fa fa-arrow-circle-o-left"></i> Back To List of Sectors
+</a>    
+<br>
+<h2>Update Sector</h2>
+<form #sectorForm="ngForm" (ngSubmit)="onSubmit(sectorForm)">
+  <label for="name">Sector Name </label>
+  <input type="text" class="form-control" name="name" #name="ngModel"
+    [ngClass]="{'is-invalid': name.errors && name.touched}" [(ngModel)]="sector.name" minlength="2" required>
+  <div style="color:red" [hidden]="!name.errors?.required" class="invalid-feedback">
+    Sector name required
+  </div>
+  <div style="color:red" [hidden]="!name.errors?.minlength" class="invalid-feedback">
+    Must be atleast 2 characters
+  </div><br><br>
+  <label for="description">Sector Description </label>
+  <input type="text" class="form-control" name="description" #description="ngModel"
+    [ngClass]="{'is-invalid': description.errors && description.touched}" [(ngModel)]="sector.description" minlength="2"
+    required>
+  <div style="color:red" [hidden]="!description.errors?.required" class="invalid-feedback">
+    Description for the company required
+  </div>
+  <div style="color:red" [hidden]="!description.errors?.minlength" class="invalid-feedback">
+    Must be atleast 2 characters
+  </div><br><br>
+  <input type="submit" value="Submit" class="btn btn-primary btn-block">
+</form>
